@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#ed7516" />
+    <meta name="description" content="ScrollEats - TikTok-style food discovery app" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ScrollEats" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#ed7516" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <title>ScrollEats</title>
+    
+    <style>
+      /* Prevent pull-to-refresh on mobile */
+      html, body {
+        overscroll-behavior: none;
+        -webkit-overflow-scrolling: touch;
+        touch-action: manipulation;
+      }
+      
+      /* Hide scrollbars but keep functionality */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Prevent text selection during swipes */
+      * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      /* Allow text selection in specific areas */
+      .selectable-text {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html> 

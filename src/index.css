@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for ScrollEats */
+
+/* Mobile-safe bottom padding for devices with home indicators */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-safe-bottom {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Dynamic viewport height for mobile browsers */
+.h-screen-dynamic {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Custom animations */
+@keyframes boom-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.boom-pulse {
+  animation: boom-pulse 0.6s ease-in-out;
+}
+
+/* Touch-friendly button styles */
+.touch-button {
+  @apply transition-all duration-200;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-button:active {
+  @apply scale-95;
+}
+
+/* Custom scrollbar for webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.6);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.8);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(249, 115, 22, 1);
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Prevent pull-to-refresh on mobile */
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Boom Meter Colors */
+.text-boom-low {
+  color: #ef4444; /* Red for low scores (1 boom) */
+}
+
+.text-boom-medium {
+  color: #f97316; /* Orange for medium scores (2 booms) */
+}
+
+.text-boom-high {
+  color: #dc2626; /* Darker red for high scores (3-4 booms) */
+}
+
+.text-boom-max {
+  color: #ea580c; /* Dark orange for max scores (5 booms) */
+}
+
+/* Improved touch interactions */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth scrolling */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+  
+  /* Improved focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+  
+  /* Loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .mobile-safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Larger touch targets on mobile */
+  .mobile-touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Improved button hover states */
+.btn-primary {
+  @apply bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+  @apply hover:bg-orange-700 active:scale-95 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-red-100 text-red-800 px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+  @apply hover:bg-red-200 active:scale-95 focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Improved text readability */
+.text-readable {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Custom scroll snap */
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+}
+
+/* Ensure scrolling works in modals */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(249, 115, 22, 0.6) rgba(0, 0, 0, 0.05);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Force scrolling on mobile */
+@media (max-width: 768px) {
+  .custom-scrollbar {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll !important;
+  }
+} 
