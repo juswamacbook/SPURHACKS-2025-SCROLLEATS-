@@ -1,5 +1,9 @@
 # ScrollEats 🍕
 
+Built collaboratively for Spurhacks 2025 in Waterloo Ontario, ScrollEats helps users discover nearby restaurants and food spots using React and the Google Places API. Focused on an intuitive UI and seamless browsing experience.
+
+Built with friends at Spurhacks 2025 – Daniel, Josh, Andrew, Charles
+
 A TikTok-style mobile-first React web app for food lovers, featuring full-screen restaurant discovery with a custom "Boom Meter" rating system.
 
 ## ✨ Latest Updates
