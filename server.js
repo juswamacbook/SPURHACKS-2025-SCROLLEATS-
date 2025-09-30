@@ -22,7 +22,7 @@ app.get('/api/places/nearby', async (req, res) => {
       return res.status(400).json({ error: 'Missing latitude or longitude' });
     }
 
-    const apiKey = 'AIzaSyBTVjUUH3_41kpP83RczmHl2OdlVYNDyCA';
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
     const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json`;
     
     const params = {
@@ -60,7 +60,7 @@ app.get('/api/places/nearby', async (req, res) => {
 app.get('/api/places/reviews/:placeId', async (req, res) => {
   try {
     const { placeId } = req.params;
-    const apiKey = 'AIzaSyBTVjUUH3_41kpP83RczmHl2OdlVYNDyCA';
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
     
     const url = `https://maps.googleapis.com/maps/api/place/details/json`;
     const params = {
@@ -88,7 +88,7 @@ app.get('/api/health', (req, res) => {
 // Geocoding endpoint to convert address or place_id to coordinates
 app.get('/api/geocode', async (req, res) => {
   const { address, placeId } = req.query;
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY || 'AIzaSyBTVjUUH3_41kpP83RczmHl2OdlVYNDyCA';
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   
   if (!address && !placeId) {
     return res.status(400).json({ error: 'Address or placeId parameter is required' });
@@ -132,7 +132,7 @@ app.get('/api/geocode', async (req, res) => {
 // Places Autocomplete endpoint
 app.get('/api/places/autocomplete', async (req, res) => {
   const { input } = req.query;
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY || 'AIzaSyBTVjUUH3_41kpP83RczmHl2OdlVYNDyCA';
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
   if (!input) {
     return res.status(400).json({ error: 'Input parameter is required' });
@@ -157,7 +157,7 @@ app.get('/api/places/autocomplete', async (req, res) => {
 app.get('/api/places/search', async (req, res) => {
   try {
     const { query, location, radius = 50000, type = 'restaurant' } = req.query;
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY || 'AIzaSyBTVjUUH3_41kpP83RczmHl2OdlVYNDyCA';
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
     
     if (!query) {
       return res.status(400).json({ error: 'Query parameter is required' });
